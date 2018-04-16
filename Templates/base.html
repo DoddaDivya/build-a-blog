@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <style type="text/css">
+     
+            .error {
+                color: red;
+            
+            }
+            body {
+                background-color: lightblue;
+            }
+            label {
+                font-style: italic;
+            }
+            h1 {
+                color: red;
+            }
+        </style>     
+    </head>
+    <body>
+        <nav>
+            <a href = "/blog">Main blog Page</a> |
+            <a href="/newpost">Add a Blog </a>
+        </nav>
+    </body>
+    <center><h1> Blog Entries </h1> </center>
+    <ul>
+        {% for entry in all_entries %}
+            <li>
+                <h2>
+                    <a href="/blog?id={{ entry.id }}">{{ entry.title }}</a>
+                </h2>
+                <p>{{ entry.body }}</p>
+                
+            </li>
+        {% endfor %}
+    </ul>
+{% block content %}    
+{% endblock %}
+</html>
